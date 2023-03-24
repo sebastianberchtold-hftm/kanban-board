@@ -25,6 +25,8 @@ services:
       - 8080:8080
     links:
       - kanban-postgres
+    depends_on:
+      - kanban-postgres
 
   kanban-ui:
     build: ./kanban-ui
@@ -32,6 +34,8 @@ services:
     ports:
       - 4200:80
     links:
+      - kanban-app
+    depends_on:
       - kanban-app
 
 
